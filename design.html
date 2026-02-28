@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lạc Ngọc Như - Thiết kế</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ===== STYLE CHÍNH ===== */
+      .design-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .design-card {
+        background: white;
+        border-radius: 1.2rem;
+        overflow: hidden;
+        box-shadow: 0 8px 20px -12px #0369a1;
+        transition: all 0.3s;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        height: fit-content;
+      }
+
+      .design-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 30px -12px #0284c7;
+      }
+
+      /* ===== GALLERY DẠNG LOCKET - MƯỢT HƠN ===== */
+      .locket-gallery {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        cursor: pointer;
+        overflow: hidden;
+        background: #e0f2fe;
+        border-bottom: 3px solid #7dd3fc;
+      }
+
+      .gallery-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Tăng thời gian lên 0.7s, easing siêu mượt */
+        transition:
+          transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          opacity 0.5s ease-out;
+        transform: translateY(0);
+        opacity: 1;
+        z-index: 2;
+      }
+
+      .gallery-item.slide-down {
+        transform: translateY(100%);
+        opacity: 0.4; /* Giảm opacity nhẹ khi trượt */
+        z-index: 1;
+      }
+
+      .gallery-item.next-ready {
+        z-index: 3;
+        opacity: 0;
+        transform: translateY(0);
+      }
+
+      .gallery-item.next-ready.showing {
+        opacity: 1;
+        transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Easing mượt */
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-color: #e0f2fe;
+        pointer-events: none;
+      }
+
+      /* Thông báo số ảnh */
+      .gallery-counter {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        z-index: 10;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .design-info {
+        padding: 1.5rem 1.5rem 1.8rem;
+      }
+
+      .design-info h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #0369a1;
+      }
+
+      .design-info p {
+        color: #475569;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .design-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .tool-tag {
+        background: linear-gradient(145deg, #e0f2fe, #bae6fd);
+        padding: 0.3rem 0.9rem;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #0369a1;
+        border: 1px solid #7dd3fc;
+      }
+
+      .design-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: linear-gradient(145deg, #0284c7, #0ea5e9);
+        color: white;
+        padding: 0.7rem 1.2rem;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+        border: none;
+        width: fit-content;
+        box-shadow: 0 4px 10px -4px #0284c7;
+      }
+
+      .design-link:hover {
+        background: linear-gradient(145deg, #0369a1, #0284c7);
+        transform: scale(1.03);
+        color: white;
+      }
+
+      .section-description {
+        color: #0369a1;
+        font-size: 1.1rem;
+        margin: -0.5rem 0 1.5rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px dashed #7dd3fc;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .design-grid {
+          gap: 1.2rem;
+        }
+
+        .locket-gallery {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="fixed-header">
+      <nav class="nav-bar">
+        <a href="index.html" class="nav-link">Giới thiệu</a>
+        <a href="video.html" class="nav-link">Video</a>
+        <a href="strategy.html" class="nav-link">Chiến dịch</a>
+        <a href="design.html" class="nav-link active">Thiết kế</a>
+        <a href="meme.html" class="nav-link">Bài đăng nổi bật</a>
+      </nav>
+    </header>
+    <div class="container">
+      <!-- TIÊU ĐỀ TRANG -->
+      <section class="section">
+        <h2 class="section-title">Ấn phẩm thiết kế</h2>
+
+        <div class="design-grid">
+          <!-- CARD 1: Xoay Đi Chờ Chi (3 ảnh) -->
+          <div class="design-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/xdcc.jpg"
+                  alt="Xoay Đi Chờ Chi 1"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=XDCC+1'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/1</div>
+            </div>
+            <div class="design-info">
+              <h3>Quảng bá Xoay Đi Chờ Chi</h3>
+              <p>Ảnh thông báo chiến dịch Xoay Đi Chờ Chi trên Fanpage Lucas</p>
+              <div class="design-tools">
+                <span class="tool-tag">Canva Pro</span>
+                <span class="tool-tag">Cartoonify</span>
+                <span class="tool-tag">TypeExtrude</span>
+              </div>
+              <a
+                href="https://www.facebook.com/photo/?fbid=1230514615782535&set=a.564615045705832"
+                target="_blank"
+                class="design-link"
+              >
+                <i class="fab fa-facebook"></i> Xem bài viết gốc
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 2: Chiến dịch 20/10 -->
+          <div class="design-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/2010.jpg"
+                  alt="20/10 Poster 1"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=20/10+1'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/1</div>
+            </div>
+            <div class="design-info">
+              <h3>Chiến dịch 20/10</h3>
+              <p>
+                Ảnh thông báo chiến dịch Tháng 10 dịu dàng - Trao nàng yêu
+                thương
+              </p>
+              <div class="design-tools">
+                <span class="tool-tag">Canva Pro</span>
+                <span class="tool-tag">Cartoonify</span>
+                <span class="tool-tag">TypeExtrude</span>
+              </div>
+              <a
+                href="https://www.facebook.com/photo/?fbid=1267744212059575&set=a.564615045705832"
+                target="_blank"
+                class="design-link"
+              >
+                <i class="fab fa-facebook"></i> Xem bài viết gốc
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 3: Blog ảnh (5 ảnh) -->
+          <div class="design-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/blog 1.jpg"
+                  alt="Blog 1"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Blog+1'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/blog 2.jpg"
+                  alt="Blog 2"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Blog+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/blog 3.jpg"
+                  alt="Blog 3"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Blog+3'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/blog 4.jpg"
+                  alt="Blog 4"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Blog+4'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/blog 5.jpg"
+                  alt="Blog 5"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Blog+5'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/5</div>
+            </div>
+            <div class="design-info">
+              <h3>Ảnh bài blog</h3>
+              <p>
+                Chụp và thiết kế lại để gắn vào bài SEO của website lucas.vn
+              </p>
+              <div class="design-tools">
+                <span class="tool-tag">Canva Pro</span>
+              </div>
+              <a href="#" class="design-link">
+                <i class="fab fa-facebook"></i> Xem bài viết
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 4: Thumbnail (5 ảnh) -->
+          <div class="design-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/thumb 1.jpg"
+                  alt="Thumb 1"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Thumb+1'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/thumb 2.jpg"
+                  alt="Thumb 2"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Thumb+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/thumb 3.jpg"
+                  alt="Thumb 3"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Thumb+3'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/thumb 4.jpg"
+                  alt="Thumb 4"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Thumb+4'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/thumb 5.jpg"
+                  alt="Thumb 5"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Thumb+5'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/5</div>
+            </div>
+            <div class="design-info">
+              <h3>Ảnh thumbnail</h3>
+              <p>Ảnh thumbnail để gắn vào bài SEO của website lucas.vn</p>
+              <div class="design-tools">
+                <span class="tool-tag">Canva Pro</span>
+              </div>
+              <a href="#" class="design-link">
+                <i class="fab fa-facebook"></i> Xem bài viết
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 5: Sao rơi Lucas (2 ảnh) -->
+          <div class="design-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/1.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Sao+Roi+1'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/2.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Sao+Roi+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/3.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Sao+Roi+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/4.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Sao+Roi+2'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/4</div>
+            </div>
+            <div class="design-info">
+              <h3>Delifood</h3>
+              <p>
+                Quảng cáo sản phẩm bằng cách giới thiệu các món ăn có thể mix
+                với khô
+              </p>
+              <div class="design-tools">
+                <span class="tool-tag">Canva Pro</span>
+              </div>
+              <a
+                href="https://www.facebook.com/share/p/18JukKKxKL/"
+                target="_blank"
+                class="design-link"
+              >
+                <i class="fab fa-facebook"></i> Xem bài viết
+              </a>
+            </div>
+          </div>
+          <!-- CARD 6   -->
+          <div class="design-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/khochay.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Sao+Roi+1'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/1</div>
+            </div>
+            <div class="design-info">
+              <h3>Delifood</h3>
+              <p>
+                Thiết kế ảnh cho bài viết quảng cáo sản phẩm mới (các món khô
+                chay)
+              </p>
+              <div class="design-tools">
+                <span class="tool-tag">Canva Pro</span>
+              </div>
+              <a
+                href="https://www.facebook.com/share/p/1am6xRHBcL/"
+                target="_blank"
+                class="design-link"
+              >
+                <i class="fab fa-facebook"></i> Xem bài viết
+              </a>
+            </div>
+          </div>
+          <!-- CARD 7   -->
+          <div class="design-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/delifood2.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Sao+Roi+1'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/1</div>
+            </div>
+            <div class="design-info">
+              <h3>Delifood</h3>
+              <p>Thiết kế ảnh cho bài viết quảng cáo khô bò cay</p>
+              <div class="design-tools">
+                <span class="tool-tag">Canva Pro</span>
+              </div>
+              <a
+                href="https://www.facebook.com/share/p/1EQRUZBdGW/"
+                target="_blank"
+                class="design-link"
+              >
+                <i class="fab fa-facebook"></i> Xem bài viết
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <div class="footer-note">
+        <i class="fas fa-paint-brush"></i> Click vào ảnh để xem thêm phiên bản
+      </div>
+    </div>
+
+    <script>
+      // JavaScript cho hiệu ứng Locket Gallery - MƯỢT HƠN
+      document.addEventListener("DOMContentLoaded", function () {
+        const galleries = document.querySelectorAll(".locket-gallery");
+
+        galleries.forEach((gallery) => {
+          const items = gallery.querySelectorAll(".gallery-item");
+          const counter = gallery.querySelector(".gallery-counter");
+          let currentIndex = 0;
+          let isAnimating = false;
+
+          // Nếu chỉ có 1 ảnh thì không cần hiệu ứng
+          if (items.length <= 1) return;
+
+          // Khởi tạo z-index
+          items.forEach((item, idx) => {
+            item.style.zIndex = idx === 0 ? 3 : 1;
+            if (idx === 0) item.classList.add("active");
+          });
+
+          gallery.addEventListener("click", function (e) {
+            if (isAnimating) return;
+
+            isAnimating = true;
+
+            // Ảnh hiện tại
+            const currentItem = items[currentIndex];
+
+            // Index tiếp theo
+            const nextIndex = (currentIndex + 1) % items.length;
+            const nextItem = items[nextIndex];
+
+            // Đưa ảnh tiếp theo lên và làm mờ để chuẩn bị
+            nextItem.style.zIndex = 3;
+            nextItem.classList.add("next-ready");
+
+            // Bắt đầu trượt ảnh hiện tại xuống
+            currentItem.classList.add("slide-down");
+
+            // Cập nhật counter ngay lập tức (số thứ tự mới)
+            if (counter) {
+              counter.textContent = nextIndex + 1 + "/" + items.length;
+            }
+
+            // Kích hoạt hiệu ứng hiện dần cho ảnh mới (sau 1 khung hình)
+            setTimeout(() => {
+              nextItem.classList.add("showing");
+            }, 20);
+
+            // Lắng nghe khi ảnh cũ trượt xong
+            const onTransitionEnd = function () {
+              // Reset ảnh cũ
+              currentItem.classList.remove("slide-down");
+              currentItem.style.zIndex = 1;
+              currentItem.classList.remove("active");
+
+              // Ảnh mới chính thức trở thành active
+              nextItem.classList.remove("next-ready", "showing");
+              nextItem.classList.add("active");
+
+              // Cập nhật index
+              currentIndex = nextIndex;
+              isAnimating = false;
+
+              currentItem.removeEventListener("transitionend", onTransitionEnd);
+            };
+
+            currentItem.addEventListener("transitionend", onTransitionEnd, {
+              once: true,
+            });
+          });
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

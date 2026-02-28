@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lạc Ngọc Như - Chiến dịch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Thêm style riêng cho trang chiến dịch */
+      .campaign-card {
+        background: white;
+        border-radius: 1.2rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 20px -10px #0369a1;
+        border-left: 6px solid #0ea5e9;
+      }
+      .campaign-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #0369a1;
+        margin-bottom: 0.5rem;
+      }
+      .campaign-date {
+        font-weight: 500;
+        color: #0284c7;
+        background: #e0f2fe;
+        display: inline-block;
+        padding: 0.2rem 1rem;
+        border-radius: 30px;
+        margin-bottom: 1rem;
+      }
+      .campaign-link {
+        display: inline-block;
+        margin: 1rem 0;
+        background: linear-gradient(145deg, #0284c7, #38bdf8);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .campaign-link:hover {
+        opacity: 0.9;
+      }
+      .campaign-stats {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+      .stat-item {
+        background: #f0f9ff;
+        border-radius: 1rem;
+        padding: 1rem 1.5rem;
+        flex: 1 1 200px;
+        text-align: center;
+      }
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0369a1;
+      }
+      .stat-label {
+        color: #334155;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="fixed-header">
+      <nav class="nav-bar">
+        <a href="index.html" class="nav-link">Giới thiệu</a>
+        <a href="video.html" class="nav-link">Video</a>
+        <a href="strategy.html" class="nav-link active">Chiến dịch</a>
+        <a href="design.html" class="nav-link">Thiết kế</a>
+        <a href="meme.html" class="nav-link">Bài đăng nổi bật</a>
+      </nav>
+    </header>
+    <div class="container">
+      <section class="section">
+        <h2 class="section-title">Lucas Combo</h2>
+
+        <!-- Campaign 1: Xoay Đi Chờ Chi -->
+        <div class="campaign-card">
+          <div class="campaign-title">Xoay Đi Chờ Chi</div>
+          <div class="campaign-date">06/09/2025 - 06/10/2025</div>
+          <p>
+            Chiến dịch tăng doanh thu tại cửa hàng. 1 hóa đơn mua hàng = 1 lượt
+            xoay vòng quay may mắn
+          </p>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1ZKpP-XwpTRJh86EiEFHs0XhB-CHrNXfi/edit?gid=1498389441"
+            target="_blank"
+            class="campaign-link"
+          >
+            <i class="fas fa-table"></i> Xem kế hoạch chi tiết (Google Sheet)
+          </a>
+          <div class="campaign-stats">
+            <div class="stat-item">
+              <div class="stat-number">> 30</div>
+              <div class="stat-label">Bài đăng (gồm reels, ảnh, story)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">> 500</div>
+              <div class="stat-label">Khách hàng ghé mua và hài lòng</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">341 triệu</div>
+              <div class="stat-label">Doanh thu tại cửa hàng</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Campaign 2: 20/10 -->
+        <div class="campaign-card">
+          <div class="campaign-title">
+            Tháng 10 dịu dàng - Trao nàng yêu thương
+          </div>
+          <div class="campaign-date">18/10/2025 - 20/10/2025</div>
+          <p>
+            Chuỗi bài viết và video chào mừng ngày Phụ nữ Việt Nam, kết hợp quà
+            tặng cho các khách nữ ghé mua tại cửa hàng
+          </p>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1nR7hOb9Z9vBlTrnPj2eDYfpyknF2TdSoZ7Jwf0hR3YA/edit?gid=1379483124"
+            target="_blank"
+            class="campaign-link"
+          >
+            <i class="fas fa-table"></i> Xem kế hoạch chi tiết (Google Sheet)
+          </a>
+          <div class="campaign-stats">
+            <div class="stat-item">
+              <div class="stat-number">> 10</div>
+              <div class="stat-label">Bài đăng (gồm reels, ảnh, story)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">16</div>
+              <div class="stat-label">Khách nữ ghé mua và hài lòng</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">12 triệu</div>
+              <div class="stat-label">Doanh thu tại cửa hàng</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bạn có thể thêm nhiều campaign khác -->
+      </section>
+
+      <!-- DELIFOOD -->
+      <section class="section">
+        <h2 class="section-title">Đồ án Digital Marketing</h2>
+
+        <!-- Campaign 1: Xoay Đi Chờ Chi -->
+        <div class="campaign-card">
+          <p>
+            Tình huống giả tưởng: khô gà Delifood mới được thành lập và cần
+            chiến dịch chạy truyền thông cho thương hiệu
+          </p>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1EGUwO55bduOgcLzJZj3gteLVLCtAs5K1W9p23G5uOaY/edit?gid=625374556#gid=625374556"
+            target="_blank"
+            class="campaign-link"
+          >
+            <i class="fas fa-table"></i> Xem kế hoạch chi tiết (Google Sheet)
+          </a>
+          <div class="campaign-stats">
+            <div class="stat-item">
+              <div class="stat-number">~ 30</div>
+              <div class="stat-label">Bài đăng (gồm reels, ảnh, story)</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">7.400</div>
+              <div class="stat-label">Lượt xem trang tự nhiên</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">9đ</div>
+              <div class="stat-label">Nhóm có điểm đồ án cao nhất lớp</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bạn có thể thêm nhiều campaign khác -->
+      </section>
+
+      <div class="footer-note">
+        <i class="fas fa-chart-line"></i> Chiến dịch Marketing
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
