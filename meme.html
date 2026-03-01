@@ -44,7 +44,7 @@
       .locket-gallery {
         position: relative;
         width: 100%;
-        height: 250px; /* <--- Dòng này */
+        height: 300px; /* <--- Dòng này */
         cursor: pointer;
         overflow: hidden;
         background: #e0f2fe;
@@ -85,7 +85,7 @@
       .gallery-item img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Ảnh tự điều chỉnh vừa khung */
+        object-fit: contain; /* Ảnh tự điều chỉnh vừa khung */
         background-color: #e0f2fe;
         pointer-events: none;
       }
@@ -138,13 +138,12 @@
       <section class="section">
         <h2 class="section-title">Meme đã viral</h2>
         <div class="meme-grid">
-          <!-- Card 1: Bộ meme Xoay Đi Chờ Chi (3 ảnh) -->
+          <!-- Card 1-->
           <div class="meme-card">
             <div class="locket-gallery" data-current="0">
               <div class="gallery-item active">
                 <img
-                  src="photo/meme_xdcc1.png"
-                  alt="Xoay Đi Chờ Chi 1"
+                  src="photo/meme1.png"
                   onerror="
                     this.src = 'https://via.placeholder.com/400x300?text=Meme+1'
                   "
@@ -152,36 +151,25 @@
               </div>
               <div class="gallery-item">
                 <img
-                  src="photo/meme_xdcc2.png"
-                  alt="Xoay Đi Chờ Chi 2"
+                  src="photo/memere.jpg"
                   onerror="
                     this.src = 'https://via.placeholder.com/400x300?text=Meme+2'
                   "
                 />
               </div>
-              <div class="gallery-item">
-                <img
-                  src="photo/meme_xdcc3.png"
-                  alt="Xoay Đi Chờ Chi 3"
-                  onerror="
-                    this.src = 'https://via.placeholder.com/400x300?text=Meme+3'
-                  "
-                />
-              </div>
-              <div class="gallery-counter">1/3</div>
+              <div class="gallery-counter">1/2</div>
             </div>
             <div class="meme-caption">
-              <p>Meme "Xoay Đi Chờ Chi" đạt 10k like</p>
+              <p>Meme dạng thả vote để giới thiệu sạc dự phòng WiWU</p>
             </div>
           </div>
 
-          <!-- Card 2: Bộ meme Bóc phốt (2 ảnh) -->
+          <!-- Card 2 -->
           <div class="meme-card">
             <div class="locket-gallery" data-current="0">
               <div class="gallery-item active">
                 <img
-                  src="photo/meme_bocphot1.jpg"
-                  alt="Bóc phốt 1"
+                  src="photo/memeca1.png"
                   onerror="
                     this.src =
                       'https://via.placeholder.com/400x300?text=Boc+phot+1'
@@ -190,28 +178,71 @@
               </div>
               <div class="gallery-item">
                 <img
-                  src="photo/meme_bocphot2.jpg"
-                  alt="Bóc phốt 2"
+                  src="photo/memeca2.png"
                   onerror="
                     this.src =
                       'https://via.placeholder.com/400x300?text=Boc+phot+2'
                   "
                 />
               </div>
-              <div class="gallery-counter">1/2</div>
+              <div class="gallery-item">
+                <img
+                  src="photo/memeca3.png"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Boc+phot+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/memeca4.png"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Boc+phot+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/memeca5.png"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Boc+phot+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/memecare.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Boc+phot+2'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/memecare2.jpg"
+                  onerror="
+                    this.src =
+                      'https://via.placeholder.com/400x300?text=Boc+phot+2'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/7</div>
             </div>
             <div class="meme-caption">
-              <p>Chế ảnh trend "Bóc phốt"</p>
+              <p>Chuỗi meme xu hướng theo vụ kiện Cardi B</p>
             </div>
           </div>
 
-          <!-- Card 3: Bộ meme khác (4 ảnh) -->
+          <!-- Card 3 -->
           <div class="meme-card">
             <div class="locket-gallery" data-current="0">
               <div class="gallery-item active">
                 <img
-                  src="photo/meme3.jpg"
-                  alt="Meme 3"
+                  src="photo/meme2.png"
                   onerror="
                     this.src = 'https://via.placeholder.com/400x300?text=Meme+3'
                   "
@@ -219,8 +250,65 @@
               </div>
               <div class="gallery-item">
                 <img
-                  src="photo/meme4.jpg"
-                  alt="Meme 4"
+                  src="photo/memere2.jpg"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+4'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/2</div>
+            </div>
+            <div class="meme-caption">
+              <p>Meme xu hướng ảnh nền 2/9 & giới thiệu sạc dự phòng WiWU</p>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="meme-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/meme3.png"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+3'
+                  "
+                />
+              </div>
+              <div class="gallery-item active">
+                <img
+                  src="photo/meme4.png"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+3'
+                  "
+                />
+              </div>
+              <div class="gallery-item active">
+                <img
+                  src="photo/meme5.png"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+3'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/3</div>
+            </div>
+            <div class="meme-caption">
+              <p>Meme theo sự kiện ra mắt iPhone 17</p>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="meme-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/meme6.png"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+3'
+                  "
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="photo/meme7.png"
                   onerror="
                     this.src = 'https://via.placeholder.com/400x300?text=Meme+4'
                   "
@@ -228,26 +316,24 @@
               </div>
               <div class="gallery-item">
                 <img
-                  src="photo/meme5.jpg"
-                  alt="Meme 5"
+                  src="photo/meme8.png"
                   onerror="
-                    this.src = 'https://via.placeholder.com/400x300?text=Meme+5'
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+4'
                   "
                 />
               </div>
               <div class="gallery-item">
                 <img
-                  src="photo/meme6.jpg"
-                  alt="Meme 6"
+                  src="photo/meme9.png"
                   onerror="
-                    this.src = 'https://via.placeholder.com/400x300?text=Meme+6'
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+4'
                   "
                 />
               </div>
-              <div class="gallery-counter">1/4</div>
+              <div class="gallery-counter">1/5</div>
             </div>
             <div class="meme-caption">
-              <p>Tuyển tập meme trending</p>
+              <p>Một số meme khác</p>
             </div>
           </div>
 
@@ -255,8 +341,65 @@
         </div>
       </section>
 
+      <section class="section">
+        <h2 class="section-title">Bài đăng khác</h2>
+        <div class="meme-grid">
+          <!-- Card 1-->
+          <div class="meme-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/post1.png"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+1'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/1</div>
+            </div>
+            <div class="meme-caption">
+              <p>Bài đăng chiến dịch</p>
+            </div>
+          </div>
+          <!-- Card 2-->
+          <div class="meme-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/post3.png"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+1'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/1</div>
+            </div>
+            <div class="meme-caption">
+              <p>Bài đăng săn sale phiên LIVE</p>
+            </div>
+          </div>
+          <!-- Card 3-->
+          <div class="meme-card">
+            <div class="locket-gallery" data-current="0">
+              <div class="gallery-item active">
+                <img
+                  src="photo/post4.png"
+                  onerror="
+                    this.src = 'https://via.placeholder.com/400x300?text=Meme+1'
+                  "
+                />
+              </div>
+              <div class="gallery-counter">1/1</div>
+            </div>
+            <div class="meme-caption">
+              <p>Bài đăng chiến dịch</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="footer-note">
-        <i class="fas fa-face-smile"></i> Meme Content
+        <i class="fas fa-face-smile"></i> Bài viết nổi bật
       </div>
     </div>
     <script src="script.js"></script>
