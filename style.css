@@ -573,3 +573,15 @@ body {
     font-size: 0.8rem;
   }
 }
+
+/* VIDEO */
+.simple-highlight {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(145deg, #0284c7, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
