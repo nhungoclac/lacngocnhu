@@ -585,3 +585,24 @@ body {
   margin-bottom: 0.5rem;
   letter-spacing: 0.3px;
 }
+
+/* ===== TOOL TAGS ===== */
+.tool-tag {
+  background: linear-gradient(145deg, #e0f2fe, #bae6fd);
+  padding: 0.3rem 0.9rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  margin: 0.2rem;
+}
+
+.experience-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.2rem 0;
+}
