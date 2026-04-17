@@ -38,10 +38,35 @@ body {
   margin-right: auto;
 }
 
-/* Responsive: nếu header cao hơn trên mobile */
+/* Tối ưu header trên mobile - cuộn ngang */
 @media (max-width: 768px) {
-  .container {
-    margin-top: 70px;
+  .fixed-header {
+    padding: 0.5rem 0.8rem;
+  }
+  .fixed-header .nav-bar {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    padding-bottom: 0.3rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    white-space: nowrap;
+  }
+  .fixed-header .nav-bar::-webkit-scrollbar {
+    height: 3px;
+  }
+  .fixed-header .nav-bar::-webkit-scrollbar-track {
+    background: #e0f2fe;
+    border-radius: 10px;
+  }
+  .fixed-header .nav-bar::-webkit-scrollbar-thumb {
+    background: #0284c7;
+    border-radius: 10px;
+  }
+  .nav-link {
+    flex-shrink: 0;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
