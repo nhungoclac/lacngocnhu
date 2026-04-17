@@ -441,7 +441,7 @@ body {
 
 .work-sample-item {
   flex: 0 0 auto;
-  width: 280px;
+  width: 350px;
   scroll-snap-align: start;
   text-decoration: none;
   color: #0369a1;
