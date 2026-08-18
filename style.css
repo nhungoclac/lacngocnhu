@@ -490,6 +490,18 @@ body {
   transition: all 0.2s;
 }
 
+.work-sample-placeholder {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-weight: 600;
+  border-bottom: 3px solid #7dd3fc;
+}
+
 .work-sample-item:hover img {
   border-bottom-color: #0284c7;
 }
@@ -590,6 +602,10 @@ body {
   .work-sample-item img {
     height: 160px;
   }
+
+  .work-sample-placeholder {
+    height: 160px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -597,6 +613,10 @@ body {
     width: 200px;
   }
   .work-sample-item img {
+    height: 130px;
+  }
+
+  .work-sample-placeholder {
     height: 130px;
   }
   .work-sample-item span {
