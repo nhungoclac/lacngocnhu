@@ -260,6 +260,39 @@ function adjustVideoAspectRatios() {
 
 document.addEventListener("DOMContentLoaded", adjustVideoAspectRatios);
 
+// ------------------
+// Xử lý nút Trở về đầu trang (Back to Top)
+document.addEventListener("DOMContentLoaded", function () {
+  let btn = document.getElementById("back-to-top");
+
+  // Tự động tạo nút nếu chưa có sẵn trong HTML
+  if (!btn) {
+    btn = document.createElement("button");
+    btn.id = "back-to-top";
+    btn.className = "back-to-top-btn hidden";
+    btn.setAttribute("aria-label", "Trở về đầu trang");
+    btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(btn);
+  }
+
+  // Ẩn/hiện nút khi người dùng cuộn trang xuống > 300px
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      btn.classList.remove("hidden");
+    } else {
+      btn.classList.add("hidden");
+    }
+  });
+
+  // Khi click nút -> cuộn mượt lên đầu trang
+  btn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+});
+
 // <!--Start of Tawk.to Script-->
 var Tawk_API = Tawk_API || {},
   Tawk_LoadStart = new Date();

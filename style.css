@@ -15,65 +15,169 @@ body {
   padding: 2rem 1rem;
 }
 
-/* ===== HEADER CỐ ĐỊNH ===== */
+/* ===== HEADER PHONG CÁCH FLOATING GLASS DOCK (KHÔNG CỐ ĐỊNH KHI CUỘN) ===== */
 .fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px -10px rgba(2, 132, 199, 0.3);
+  position: absolute;
+  top: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 1200px; /* Khớp chính xác chiều rộng 1200px của .container phía dưới */
   z-index: 1000;
-  padding: 0.8rem 1rem;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Điều chỉnh nav-bar bên trong header */
-.fixed-header .nav-bar {
-  margin-bottom: 0; /* Bỏ margin dưới */
-  max-width: 1200px; /* Giới hạn chiều rộng */
-  margin-left: auto;
-  margin-right: auto;
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.45rem 0.6rem 0.45rem 1rem;
+  border-radius: 999px;
+  box-shadow: 
+    0 12px 32px -8px rgba(2, 132, 199, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(125, 211, 252, 0.4);
 }
 
-/* Tối ưu header trên mobile - cuộn ngang */
+/* Logo Badge sáng tạo & tối giản */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: #0369a1;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding-right: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-brand:hover {
+  transform: scale(1.02);
+}
+
+.nav-logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-brand:hover .nav-logo-badge {
+  transform: rotate(-8deg) scale(1.08);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.45);
+}
+
+.nav-name {
+  background: linear-gradient(135deg, #0369a1, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* Navigation Links */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0;
+  background: rgba(240, 249, 255, 0.7);
+  padding: 0.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(186, 230, 253, 0.5);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.45rem 1.15rem;
+  border-radius: 999px;
+  color: #0369a1;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.nav-link i {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #0284c7;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px -3px rgba(2, 132, 199, 0.15);
+}
+
+.nav-link:hover i {
+  transform: scale(1.18);
+  opacity: 1;
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.38);
+  border-color: transparent;
+}
+
+.nav-link.active i {
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* Mobile Responsiveness cho Header */
 @media (max-width: 768px) {
   .fixed-header {
-    padding: 0.5rem 0.8rem;
+    top: 0.6rem;
+    width: calc(100% - 1.2rem);
   }
-  .fixed-header .nav-bar {
+  .nav-container {
+    padding: 0.35rem 0.5rem;
+  }
+  .nav-name {
+    display: none; /* Ẩn tên trên màn hình nhỏ để nhường không gian cho menu */
+  }
+  .nav-bar {
     overflow-x: auto;
-    justify-content: flex-start;
-    gap: 0.8rem;
-    padding-bottom: 0.3rem;
+    max-width: 100%;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    white-space: nowrap;
+    scrollbar-width: none;
+    gap: 0.2rem;
   }
-  .fixed-header .nav-bar::-webkit-scrollbar {
-    height: 3px;
-  }
-  .fixed-header .nav-bar::-webkit-scrollbar-track {
-    background: #e0f2fe;
-    border-radius: 10px;
-  }
-  .fixed-header .nav-bar::-webkit-scrollbar-thumb {
-    background: #0284c7;
-    border-radius: 10px;
+  .nav-bar::-webkit-scrollbar {
+    display: none;
   }
   .nav-link {
-    flex-shrink: 0;
-    padding: 0.4rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.82rem;
   }
 }
 
 /* Container chính */
 .container {
   max-width: 1200px;
-  margin: 80px auto 0; /* margin-top:80px, auto, margin-bottom:0 */
+  margin: 100px auto 0; /* margin-top:100px */
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -81,32 +185,6 @@ body {
   box-shadow: 0 20px 40px -10px rgba(0, 100, 150, 0.3);
   padding: 2.5rem 2rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* Navigation giữa các page */
-.nav-bar {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.nav-link {
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.5rem 1.5rem;
-  border-radius: 30px;
-  background: white;
-  color: #0369a1;
-  border: 1px solid #7dd3fc;
-  transition: 0.2s;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  background: linear-gradient(145deg, #0284c7, #38bdf8);
-  color: white;
-  border-color: transparent;
 }
 
 /* ===== HEADER / GIỚI THIỆU ===== */
@@ -876,4 +954,61 @@ body {
 /* Điều chỉnh card cho đồng bộ (có thể dùng chung .reel-card) */
 .landscape-card {
   max-width: 100%;
+}
+
+/* ===== NÚT TRỞ VỀ ĐẦU TRANG (BACK TO TOP) - TÔNG XANH ===== */
+#back-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 8px 24px rgba(2, 132, 199, 0.38),
+    0 0 0 1px rgba(125, 211, 252, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 9990;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#back-to-top.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+}
+
+#back-to-top:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.5);
+}
+
+#back-to-top i {
+  transition: transform 0.2s ease;
+}
+
+#back-to-top:hover i {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  #back-to-top {
+    bottom: 85px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.05rem;
+  }
 }
