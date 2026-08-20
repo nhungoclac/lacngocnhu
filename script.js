@@ -293,6 +293,57 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// ------------------
+// Xử lý slider ảnh cho trang Brief & Sản phẩm (.brief-slider)
+function initBriefSliders() {
+  document.querySelectorAll(".brief-slider").forEach((slider) => {
+    const slides = slider.querySelectorAll(".slide-item");
+    const prevBtn = slider.querySelector(".prev-btn");
+    const nextBtn = slider.querySelector(".next-btn");
+    const counter = slider.querySelector(".slider-counter");
+
+    if (slides.length <= 1) {
+      if (prevBtn) prevBtn.style.display = "none";
+      if (nextBtn) nextBtn.style.display = "none";
+      if (counter) counter.style.display = "none";
+      return;
+    }
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add("active");
+        } else {
+          slide.classList.remove("active");
+        }
+      });
+      if (counter) {
+        counter.textContent = `${index + 1}/${slides.length}`;
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      });
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initBriefSliders);
+
 // <!--Start of Tawk.to Script-->
 var Tawk_API = Tawk_API || {},
   Tawk_LoadStart = new Date();

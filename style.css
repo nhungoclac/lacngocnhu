@@ -413,11 +413,22 @@ body {
   box-shadow: 0 15px 20px -8px #0284c7;
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .reel-embed {
   position: relative;
   width: 100%;
   aspect-ratio: 9 / 16; /* Tỉ lệ mặc định cho video dọc */
-  background: #f0f9ff;
+  background: linear-gradient(90deg, #e0f2fe 0%, #f0f9ff 50%, #e0f2fe 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite ease-in-out;
   overflow: hidden;
 }
 
@@ -1011,4 +1022,230 @@ body {
     height: 42px;
     font-size: 1.05rem;
   }
+}
+
+/* ===== TRANG BRIEF & SẢN PHẨM (BRIEF & DELIVERABLES) ===== */
+.brief-card {
+  background: #ffffff;
+  border-radius: 1.2rem;
+  padding: 1.8rem;
+  margin-bottom: 2.2rem;
+  box-shadow: 0 10px 25px -10px rgba(3, 105, 161, 0.22);
+  border: 1px solid rgba(125, 211, 252, 0.4);
+  border-left: 6px solid #0ea5e9;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.brief-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px -12px rgba(2, 132, 199, 0.32);
+}
+
+.brief-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0369a1;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 868px) {
+  .brief-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brief-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-header {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0284c7;
+  background: #f0f9ff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 30px;
+  width: fit-content;
+  margin-bottom: 0.8rem;
+  border: 1px solid #bae6fd;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Khung ảnh Brief (Cột trái) */
+.brief-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: #f0f9ff;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid #bae6fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brief-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Tự động fit vừa khung không bị méo */
+  background: #e0f2fe;
+}
+
+/* Khung Slider ảnh thành quả (Cột phải) */
+.brief-slider {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: #f0f9ff;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid #bae6fd;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(0.98);
+}
+
+.slide-item.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Tự động fit vừa khung */
+  background: #e0f2fe;
+}
+
+/* Nút mũi tên chuyển ảnh Next/Prev */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.slider-arrow:hover {
+  background: #0284c7;
+  color: white;
+  border-color: transparent;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow.prev-btn {
+  left: 10px;
+}
+
+.slider-arrow.next-btn {
+  right: 10px;
+}
+
+.slider-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(3, 105, 161, 0.8);
+  color: white;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Phần Footer của Brief Card: Text chú thích + 2 Box số liệu */
+.brief-footer {
+  border-top: 1px dashed #7dd3fc;
+  padding-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.brief-desc {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.brief-stats {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  flex: 1 1 180px;
+  background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+  border: 1px solid #bae6fd;
+  border-radius: 0.9rem;
+  padding: 0.8rem 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: transform 0.2s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-2px);
+}
+
+.stat-number {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0369a1;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 500;
 }
