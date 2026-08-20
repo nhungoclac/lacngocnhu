@@ -294,10 +294,10 @@ body {
   margin-top: 1rem;
 }
 
-/* ===== FACEBOOK REELS GRID - KÍCH THƯỚC NHỎ GỌN ===== */
+/* ===== FACEBOOK REELS GRID - KÍCH THƯỚC LINH HOẠT ===== */
 .reels-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.2rem;
   justify-content: center;
   margin-top: 1.5rem;
@@ -315,8 +315,19 @@ body {
   border-image: linear-gradient(90deg, #0284c7, #7dd3fc);
   border-image-slice: 1;
   width: 100%;
-  max-width: 220px; /* Giới hạn tối đa */
-  margin: 0 auto; /* Căn giữa nếu cột rộng hơn */
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* Card tự động mở rộng nếu là video ngang hoặc vuông */
+.reel-card.landscape-card,
+.reel-card.wide {
+  max-width: 100%;
+  grid-column: span 2;
+}
+
+.reel-card.square-card {
+  max-width: 320px;
 }
 
 .reel-card:hover {
@@ -327,8 +338,25 @@ body {
 .reel-embed {
   position: relative;
   width: 100%;
-  padding-top: 160%; /* Giảm tỉ lệ từ 177.78% xuống 160% để video ngắn lại, vẫn giữ dáng dọc nhưng nhìn cân đối hơn */
+  aspect-ratio: 9 / 16; /* Tỉ lệ mặc định cho video dọc */
   background: #f0f9ff;
+  overflow: hidden;
+}
+
+/* Class tùy chọn khung hình thủ công */
+.reel-embed.landscape,
+.reel-embed.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.reel-embed.square,
+.reel-embed.aspect-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.reel-embed.portrait,
+.reel-embed.aspect-9-16 {
+  aspect-ratio: 9 / 16;
 }
 
 .reel-embed iframe {
@@ -351,25 +379,29 @@ body {
   line-height: 1.4;
 }
 
-/* Căn trái cho grid của CTXH */
 .reels-grid-left {
   justify-content: flex-start;
 }
 
-/* Responsive cho màn hình rất nhỏ */
+/* Responsive cho màn hình nhỏ */
 @media (max-width: 500px) {
   .reels-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 cột trên mobile */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 0.8rem;
   }
   .reel-card {
-    max-width: none; /* Bỏ giới hạn, dùng 1fr */
+    max-width: none;
+  }
+  .reel-card.landscape-card,
+  .reel-card.wide {
+    grid-column: span 1;
   }
   .reel-caption {
     font-size: 0.75rem;
     padding: 0.5rem 0.3rem 0.6rem;
   }
 }
+
 .project-card {
   background: white;
   border-radius: 1.2rem;
@@ -826,9 +858,10 @@ body {
 .landscape-embed {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  aspect-ratio: 16 / 9;
   background: #e0f2fe;
   border-bottom: 3px solid #7dd3fc;
+  overflow: hidden;
 }
 
 .landscape-embed iframe {

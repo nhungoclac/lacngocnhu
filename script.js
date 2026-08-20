@@ -213,6 +213,53 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// ------------------
+// Tự động nhận diện & điều chỉnh tỉ lệ khung hình (Aspect Ratio) cho video nhúng Facebook
+function adjustVideoAspectRatios() {
+  document.querySelectorAll(".reel-embed, .landscape-embed").forEach((embed) => {
+    const iframe = embed.querySelector("iframe");
+    if (!iframe) return;
+
+    let width = parseFloat(iframe.getAttribute("width"));
+    let height = parseFloat(iframe.getAttribute("height"));
+
+    // Nếu không tìm thấy width/height trên thẻ, đọc từ URL parameters (width=...&height=...)
+    if (!width || !height) {
+      const src = iframe.getAttribute("src") || "";
+      const widthMatch = src.match(/[?&]width=(\d+)/);
+      const heightMatch = src.match(/[?&]height=(\d+)/);
+      if (widthMatch && heightMatch) {
+        width = parseFloat(widthMatch[1]);
+        height = parseFloat(heightMatch[1]);
+      }
+    }
+
+    if (width && height && height > 0) {
+      const ratio = width / height;
+      embed.style.aspectRatio = `${width} / ${height}`;
+
+      const card = embed.closest(".reel-card");
+      if (card) {
+        if (ratio > 1.2) {
+          // Video ngang (landscape 16:9, v.v.)
+          card.classList.add("landscape-card");
+          card.classList.remove("portrait-card", "square-card");
+        } else if (ratio < 0.8) {
+          // Video dọc (reels 9:16)
+          card.classList.add("portrait-card");
+          card.classList.remove("landscape-card", "square-card");
+        } else {
+          // Video vuông (1:1)
+          card.classList.add("square-card");
+          card.classList.remove("landscape-card", "portrait-card");
+        }
+      }
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", adjustVideoAspectRatios);
+
 // <!--Start of Tawk.to Script-->
 var Tawk_API = Tawk_API || {},
   Tawk_LoadStart = new Date();
