@@ -344,6 +344,140 @@ function initBriefSliders() {
 
 document.addEventListener("DOMContentLoaded", initBriefSliders);
 
+// ------------------
+// Xử lý Lightbox phóng to ảnh toàn màn hình với nút Next/Prev chuyển ảnh
+function initImageLightbox() {
+  let lightbox = document.getElementById("image-lightbox");
+  if (!lightbox) {
+    lightbox = document.createElement("div");
+    lightbox.id = "image-lightbox";
+    lightbox.innerHTML = `
+      <button class="lightbox-close" aria-label="Đóng"><i class="fas fa-times"></i></button>
+      <button class="lightbox-nav lightbox-prev" aria-label="Ảnh trước"><i class="fas fa-chevron-left"></i></button>
+      <img class="lightbox-content" src="" alt="Ảnh phóng to" />
+      <button class="lightbox-nav lightbox-next" aria-label="Ảnh tiếp"><i class="fas fa-chevron-right"></i></button>
+      <div class="lightbox-counter">1 / 1</div>
+    `;
+    document.body.appendChild(lightbox);
+  }
+
+  const lightboxImg = lightbox.querySelector(".lightbox-content");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+  const prevBtn = lightbox.querySelector(".lightbox-prev");
+  const nextBtn = lightbox.querySelector(".lightbox-next");
+  const counter = lightbox.querySelector(".lightbox-counter");
+
+  let currentGallery = [];
+  let currentIndex = 0;
+  let activeSliderSyncFn = null;
+
+  function updateLightboxImage() {
+    if (currentGallery.length === 0) return;
+    lightboxImg.src = currentGallery[currentIndex];
+
+    if (currentGallery.length > 1) {
+      prevBtn.style.display = "flex";
+      nextBtn.style.display = "flex";
+      counter.style.display = "block";
+      counter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+    } else {
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+      counter.style.display = "none";
+    }
+
+    // Đồng bộ slide với card bên dưới nếu thuộc slider
+    if (activeSliderSyncFn) {
+      activeSliderSyncFn(currentIndex);
+    }
+  }
+
+  function openLightbox(gallery, index, syncFn) {
+    currentGallery = gallery;
+    currentIndex = index;
+    activeSliderSyncFn = syncFn || null;
+    updateLightboxImage();
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden"; // Khóa cuộn trang khi đang mở lightbox
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = ""; // Khôi phục cuộn trang
+  }
+
+  function showPrev() {
+    if (currentGallery.length <= 1) return;
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    updateLightboxImage();
+  }
+
+  function showNext() {
+    if (currentGallery.length <= 1) return;
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    updateLightboxImage();
+  }
+
+  // Bắt sự kiện click vào ảnh
+  document.addEventListener("click", function (e) {
+    const img = e.target.closest(".brief-img-wrapper img, .slide-item img, .zoomable-img");
+    if (!img || !img.src) return;
+
+    // Kiểm tra xem ảnh có thuộc về slider nhiều ảnh không
+    const slider = img.closest(".brief-slider");
+    if (slider) {
+      const slideImgs = Array.from(slider.querySelectorAll(".slide-item img"));
+      const gallerySrcs = slideImgs.map((i) => i.src);
+      const clickedIdx = slideImgs.indexOf(img);
+
+      // Hàm đồng bộ trạng thái slider trên trang
+      const syncFn = (idx) => {
+        const slides = slider.querySelectorAll(".slide-item");
+        const cardCounter = slider.querySelector(".slider-counter");
+        slides.forEach((s, i) => {
+          if (i === idx) s.classList.add("active");
+          else s.classList.remove("active");
+        });
+        if (cardCounter) cardCounter.textContent = `${idx + 1}/${slides.length}`;
+      };
+
+      openLightbox(gallerySrcs, clickedIdx >= 0 ? clickedIdx : 0, syncFn);
+    } else {
+      // Ảnh đơn lẻ (vd: ảnh brief bên trái)
+      openLightbox([img.src], 0, null);
+    }
+  });
+
+  // Nút chuyển ảnh Next / Prev
+  prevBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    showPrev();
+  });
+
+  nextBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    showNext();
+  });
+
+  // Đóng khi click nút X hoặc click ra ngoài vùng ảnh
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Phím tắt điều khiển bàn phím (Phím mũi tên trái/phải và phím Esc)
+  document.addEventListener("keydown", function (e) {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "Escape") closeLightbox();
+    else if (e.key === "ArrowLeft") showPrev();
+    else if (e.key === "ArrowRight") showNext();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initImageLightbox);
+
 // <!--Start of Tawk.to Script-->
 var Tawk_API = Tawk_API || {},
   Tawk_LoadStart = new Date();
