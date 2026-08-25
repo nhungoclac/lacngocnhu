@@ -36,7 +36,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
   padding: 0.45rem 0.6rem 0.45rem 1rem;
   border-radius: 999px;
-  box-shadow: 
+  box-shadow:
     0 12px 32px -8px rgba(2, 132, 199, 0.22),
     0 0 0 1px rgba(255, 255, 255, 0.8),
     inset 0 1px 1px rgba(255, 255, 255, 0.9);
@@ -120,7 +120,9 @@ body {
 .nav-link i {
   font-size: 0.95rem;
   opacity: 0.8;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .nav-link:hover {
@@ -970,15 +972,15 @@ body {
 /* ===== NÚT TRỞ VỀ ĐẦU TRANG (BACK TO TOP) - TÔNG XANH ===== */
 #back-to-top {
   position: fixed;
-  bottom: 90px;
-  right: 25px;
+  bottom: 115px; /* Dời cao lên tạo khoảng cách thoáng với nút chatbot */
+  right: 26px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
   color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 
+  box-shadow:
     0 8px 24px rgba(2, 132, 199, 0.38),
     0 0 0 1px rgba(125, 211, 252, 0.4);
   cursor: pointer;
@@ -1016,8 +1018,8 @@ body {
 
 @media (max-width: 480px) {
   #back-to-top {
-    bottom: 85px;
-    right: 15px;
+    bottom: 95px;
+    right: 19px;
     width: 42px;
     height: 42px;
     font-size: 1.05rem;
@@ -1030,15 +1032,15 @@ body {
   border-radius: 1.2rem;
   padding: 1.8rem;
   margin-bottom: 2.2rem;
-  box-shadow: 0 10px 25px -10px rgba(3, 105, 161, 0.22);
+  box-shadow: 0 8px 20px -10px rgba(3, 105, 161, 0.18);
   border: 1px solid rgba(125, 211, 252, 0.4);
   border-left: 6px solid #0ea5e9;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .brief-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 35px -12px rgba(2, 132, 199, 0.32);
+  box-shadow: 0 10px 25px -8px rgba(2, 132, 199, 0.25);
+  border-color: rgba(56, 189, 248, 0.6);
 }
 
 .brief-card-title {
@@ -1130,14 +1132,12 @@ body {
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  transform: scale(0.98);
+  transition: opacity 0.3s ease;
 }
 
 .slide-item.active {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
   z-index: 2;
 }
 
@@ -1166,7 +1166,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   backdrop-filter: blur(4px);
 }
 
@@ -1174,7 +1174,7 @@ body {
   background: #0284c7;
   color: white;
   border-color: transparent;
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%);
 }
 
 .slider-arrow.prev-btn {
@@ -1231,11 +1231,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  transition: transform 0.2s ease;
-}
-
-.stat-box:hover {
-  transform: translateY(-2px);
 }
 
 .stat-number {
@@ -1255,12 +1250,6 @@ body {
 .slide-item img,
 .zoomable-img {
   cursor: zoom-in;
-  transition: transform 0.3s ease;
-}
-
-.brief-img-wrapper:hover img,
-.slide-item:hover img {
-  transform: scale(1.02);
 }
 
 /* ===== LIGHTBOX PREVIEW ẢNH (GIAO DIỆN PHÓNG TO ẢNH FULLSCREEN) ===== */
@@ -1279,7 +1268,9 @@ body {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   padding: 1.5rem;
 }
 
