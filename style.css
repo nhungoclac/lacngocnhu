@@ -84,13 +84,15 @@ body {
 }
 
 .nav-name {
-  background: linear-gradient(135deg, #0f172a 0%, #0284c7 100%);
+  font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #0f172a 0%, #0284c7 65%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.5px;
   white-space: nowrap;
-  font-weight: 700;
 }
 
 /* Nút 3 Gạch Hamburger Nav Toggle (Mobile & Tablet) */
@@ -249,10 +251,14 @@ body {
 }
 
 .info h1 {
-  font-size: 2.1rem;
+  font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+  font-size: 2.35rem;
   font-weight: 700;
-  color: #0f172a;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.8px;
+  background: linear-gradient(135deg, #0f172a 35%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0;
 }
 
@@ -325,8 +331,10 @@ body {
 }
 
 .section-title {
-  font-size: 2rem;
+  font-family: "Space Grotesk", "Plus Jakarta Sans", sans-serif;
+  font-size: 2.05rem;
   font-weight: 700;
+  letter-spacing: -0.6px;
   color: #0f172a;
   margin-bottom: 1.5rem;
   position: relative;
@@ -344,7 +352,7 @@ body {
   border-radius: 4px;
 }
 
-/* ===== KỸ NĂNG ===== */
+/* ===== KỸ NĂNG & MÀU LOGO GỐC (BRAND COLORS) ===== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -357,16 +365,14 @@ body {
   padding: 1.2rem 1.2rem;
   box-shadow: 0 4px 15px -5px rgba(15, 23, 42, 0.05);
   border: 1px solid #e2e8f0;
-  border-left: 5px solid #0284c7;
   transition: all 0.25s ease;
   text-align: center;
 }
 
 .skill-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 25px -8px rgba(2, 132, 199, 0.15);
+  box-shadow: 0 12px 25px -8px rgba(15, 23, 42, 0.12);
   border-color: #cbd5e1;
-  border-left-color: #0284c7;
 }
 
 .skill-name {
@@ -380,9 +386,34 @@ body {
 }
 
 .skill-name i {
-  color: #0284c7;
   font-size: 2rem;
+  transition: transform 0.25s ease;
 }
+
+.skill-item:hover .skill-name i {
+  transform: scale(1.15) rotate(4deg);
+}
+
+/* Các màu Logo gốc chuẩn từng thương hiệu */
+.skill-name i.icon-seo { color: #10b981; }                 /* SEO Green */
+.skill-name i.icon-meta { color: #1877f2; }                /* Meta Facebook Blue */
+.skill-name i.icon-tiktok {                                /* TikTok Dual Glitch Color */
+  color: #0f172a;
+  filter: drop-shadow(-1px -1px 0px #25f4ee) drop-shadow(1.5px 1.5px 0px #fe2c55);
+}
+.skill-name i.icon-figma { color: #f24e1e; }               /* Figma Orange/Coral */
+.skill-name i.icon-wordpress { color: #21759b; }           /* WordPress Blue */
+.skill-name i.icon-camera { color: #ea580c; }              /* Camera Amber Orange */
+.skill-name i.icon-capcut { color: #0f172a; }              /* CapCut Black */
+.skill-name i.icon-canva { color: #00c4cc; }               /* Canva Cyan */
+.skill-name i.icon-html { color: #e34f26; }                /* HTML5 Orange-Red */
+.skill-name i.icon-script { color: #8b5cf6; }              /* Script Violet */
+.skill-name i.icon-plan { color: #2563eb; }                /* Plan Royal Blue */
+.skill-name i.icon-gsheet { color: #0f9d58; }              /* Google Sheet Green */
+.skill-name i.icon-make { color: #6d28d9; }                /* Make.com Purple */
+.skill-name i.icon-learn { color: #f59e0b; }               /* Book Gold */
+.skill-name i.icon-ai { color: #10a37f; }                  /* OpenAI Emerald */
+.skill-name i.icon-veo { color: #e11d48; }                 /* Veo AI Rose Red */
 
 /* ===== TIMELINE (KINH NGHIỆM, HỌC VẤN) ===== */
 .timeline {
