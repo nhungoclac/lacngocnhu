@@ -20,40 +20,51 @@
     <style>
       /* Thêm style riêng cho trang chiến dịch */
       .campaign-card {
-        background: white;
+        background: #ffffff;
         border-radius: 1.2rem;
         padding: 1.5rem;
         margin-bottom: 2rem;
-        box-shadow: 0 10px 20px -10px #0369a1;
-        border-left: 6px solid #0ea5e9;
+        box-shadow: 0 4px 16px -6px rgba(15, 23, 42, 0.05);
+        border: 1px solid #e2e8f0;
+        border-left: 5px solid #0284c7;
+        transition: all 0.25s ease;
+      }
+      .campaign-card:hover {
+        box-shadow: 0 12px 25px -6px rgba(15, 23, 42, 0.09);
+        border-color: #cbd5e1;
+        border-left-color: #0284c7;
       }
       .campaign-title {
         font-size: 1.8rem;
-        font-weight: 600;
-        color: #0369a1;
+        font-weight: 700;
+        color: #0f172a;
         margin-bottom: 0.5rem;
       }
       .campaign-date {
-        font-weight: 500;
+        font-weight: 600;
         color: #0284c7;
-        background: #e0f2fe;
+        background: #f0f9ff;
         display: inline-block;
-        padding: 0.2rem 1rem;
+        padding: 0.25rem 1rem;
         border-radius: 30px;
         margin-bottom: 1rem;
+        font-size: 0.88rem;
+        border: 1px solid #e0f2fe;
       }
       .campaign-link {
         display: inline-block;
         margin: 1rem 0;
-        background: linear-gradient(145deg, #0284c7, #38bdf8);
+        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
         color: white;
         padding: 0.8rem 1.5rem;
         border-radius: 40px;
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
       .campaign-link:hover {
-        opacity: 0.9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
       }
       .campaign-stats {
         display: flex;
@@ -83,7 +94,7 @@
       <div class="nav-container">
         <a href="index.html" class="nav-brand">
           <div class="nav-logo-badge">
-            <i class="fas fa-bullhorn"></i>
+            <img src="favicon.svg" alt="Logo" class="nav-logo-img" />
           </div>
           <span class="nav-name">Marketing</span>
         </a>
