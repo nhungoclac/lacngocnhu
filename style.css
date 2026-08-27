@@ -93,6 +93,29 @@ body {
   font-weight: 700;
 }
 
+/* Nút 3 Gạch Hamburger Nav Toggle (Mobile & Tablet) */
+.nav-toggle {
+  display: none;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  transition: all 0.2s ease;
+}
+
+.nav-toggle:hover {
+  background: #f0f9ff;
+  color: #0284c7;
+  border-color: #0284c7;
+}
+
 /* Navigation Links */
 .nav-bar {
   display: flex;
@@ -1452,7 +1475,195 @@ body {
   z-index: 10001;
 }
 
+/* ===== RESPONSIVE TABLET & MOBILE (GIAO DIỆN IPAD VÀ ĐIỆN THOẠI) ===== */
+
+/* 1. Tablet & iPad (<= 992px) */
+@media (max-width: 992px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  .fixed-header {
+    top: 0.8rem;
+    width: calc(100% - 1.2rem);
+  }
+
+  .nav-container {
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    border-radius: 18px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-bar {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0.8rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.15);
+    z-index: 1001;
+  }
+
+  .nav-bar.active {
+    display: flex;
+    animation: navSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes navSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 1.6rem 1.2rem;
+    margin: 1rem auto;
+    border-radius: 1.2rem;
+    width: 100%;
+  }
+
+  .grid-2col {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* 2. Mobile (<= 768px) */
 @media (max-width: 768px) {
+  body {
+    padding: 0.6rem 0.4rem;
+  }
+
+  .container {
+    padding: 1.4rem 1rem;
+    margin: 0.5rem auto;
+    border-radius: 1rem;
+  }
+
+  /* Intro Section Căn giữa ngay ngắn */
+  .intro {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1.2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .avatar {
+    margin: 0 auto;
+    width: 125px;
+    height: 125px;
+    flex: 0 0 125px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .info-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .info h1 {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .info .slogan {
+    text-align: center;
+    border-left: none;
+    border-bottom: 2px solid #0284c7;
+    padding-left: 0;
+    padding-bottom: 0.4rem;
+    margin: 0.6rem auto 1rem;
+    max-width: 90%;
+    font-size: 0.92rem;
+  }
+
+  .info-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+  }
+
+  .info-details span {
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    font-size: 0.88rem;
+  }
+
+  /* Căn chỉnh các layout bên dưới cho thẳng hàng & đều màn hình */
+  .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    padding: 1.2rem 1rem;
+  }
+
+  .work-sample-content {
+    grid-template-columns: 1fr !important;
+  }
+
+  .brief-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  .meme-grid,
+  .design-grid,
+  .reels-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  .locket-gallery {
+    height: 250px !important;
+  }
+
+  /* Lightbox trên mobile */
   .lightbox-close {
     top: 15px;
     right: 15px;
@@ -1462,16 +1673,16 @@ body {
   }
 
   .lightbox-prev {
-    left: 10px;
+    left: 8px;
   }
 
   .lightbox-next {
-    right: 10px;
+    right: 8px;
   }
 
   .lightbox-nav {
-    width: 42px;
-    height: 42px;
-    font-size: 1.05rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }

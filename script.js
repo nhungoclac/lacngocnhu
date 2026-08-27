@@ -572,6 +572,57 @@ function initImageLightbox() {
 
 document.addEventListener("DOMContentLoaded", initImageLightbox);
 
+// Điều khiển Menu Nút 3 Gạch (Mobile & Tablet Responsive Hamburger Nav)
+function initMobileNav() {
+  const navToggle = document.getElementById("navToggle");
+  const navBar = document.getElementById("navBar");
+
+  if (navToggle && navBar) {
+    navToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      navBar.classList.toggle("active");
+      const icon = navToggle.querySelector("i");
+      if (icon) {
+        if (navBar.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
+        } else {
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        }
+      }
+    });
+
+    // Đóng menu khi click ra ngoài
+    document.addEventListener("click", function (e) {
+      if (!navBar.contains(e.target) && !navToggle.contains(e.target)) {
+        if (navBar.classList.contains("active")) {
+          navBar.classList.remove("active");
+          const icon = navToggle.querySelector("i");
+          if (icon) {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+          }
+        }
+      }
+    });
+
+    // Tự động đóng menu khi click chọn link
+    navBar.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        navBar.classList.remove("active");
+        const icon = navToggle.querySelector("i");
+        if (icon) {
+          icon.classList.remove("fa-xmark");
+          icon.classList.add("fa-bars");
+        }
+      });
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", initMobileNav);
+
 // <!--Start of Tawk.to Script-->
 var Tawk_API = Tawk_API || {},
   Tawk_LoadStart = new Date();
