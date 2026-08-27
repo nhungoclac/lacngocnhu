@@ -477,9 +477,32 @@ function initImageLightbox() {
   // Bắt sự kiện click vào ảnh
   document.addEventListener("click", function (e) {
     const img = e.target.closest(
-      ".brief-img-wrapper img, .slide-item img, .gallery-item img, .zoomable-img"
+      ".brief-img-wrapper img, .slide-item img, .gallery-item img, .zoomable-img, .work-sample-item img"
     );
     if (!img || !img.src) return;
+
+    // 0. Kiểm tra xem ảnh có thuộc về work-samples (trang Index) không
+    const workSamples = img.closest(".work-samples");
+    if (workSamples) {
+      e.preventDefault();
+      e.stopPropagation();
+      const sampleImgs = Array.from(
+        workSamples.querySelectorAll(".work-sample-item img")
+      );
+      const gallerySrcs = sampleImgs.map((i) => i.src);
+      const clickedIdx = sampleImgs.indexOf(img);
+
+      openLightbox(gallerySrcs, clickedIdx >= 0 ? clickedIdx : 0, null);
+      return;
+    }
+
+    const workSampleItem = img.closest(".work-sample-item");
+    if (workSampleItem) {
+      e.preventDefault();
+      e.stopPropagation();
+      openLightbox([img.src], 0, null);
+      return;
+    }
 
     // 1. Kiểm tra xem ảnh có thuộc về locket-gallery (trang Meme) không
     const locket = img.closest(".locket-gallery");
