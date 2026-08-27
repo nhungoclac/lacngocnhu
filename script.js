@@ -320,11 +320,16 @@ function initBriefSliders() {
         }
       });
       if (counter) {
+        counter.style.display = "block";
         counter.textContent = `${index + 1}/${slides.length}`;
       }
     }
 
+    // Tự động khởi tạo hiển thị slide đầu tiên và tính toán số đếm 1/N ngay từ khi mở trang
+    showSlide(0);
+
     if (prevBtn) {
+      prevBtn.style.display = "flex";
       prevBtn.addEventListener("click", function (e) {
         e.preventDefault();
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
@@ -333,6 +338,7 @@ function initBriefSliders() {
     }
 
     if (nextBtn) {
+      nextBtn.style.display = "flex";
       nextBtn.addEventListener("click", function (e) {
         e.preventDefault();
         currentIndex = (currentIndex + 1) % slides.length;
