@@ -36,59 +36,109 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Xử lý locket gallery (thêm vào script.js)
-document.querySelectorAll(".locket-gallery").forEach((gallery) => {
-  const items = gallery.querySelectorAll(".gallery-item");
-  const counter = gallery.querySelector(".gallery-counter");
-  if (items.length <= 1) return;
+// Xử lý locket gallery trên trang Meme với nút mũi tên chuyển ảnh Prev / Next
+function initLocketGalleries() {
+  document.querySelectorAll(".locket-gallery").forEach((gallery) => {
+    const items = gallery.querySelectorAll(".gallery-item");
+    const counter = gallery.querySelector(".gallery-counter");
+    let prevBtn = gallery.querySelector(".prev-btn");
+    let nextBtn = gallery.querySelector(".next-btn");
 
-  let currentIndex = 0;
-  let isAnimating = false;
-
-  items.forEach((item, idx) => {
-    item.style.zIndex = idx === 0 ? 3 : 1;
-    if (idx === 0) item.classList.add("active");
-  });
-
-  gallery.addEventListener("click", function () {
-    if (isAnimating) return;
-    isAnimating = true;
-
-    const currentItem = items[currentIndex];
-    const nextIndex = (currentIndex + 1) % items.length;
-    const nextItem = items[nextIndex];
-
-    nextItem.style.zIndex = 3;
-    nextItem.classList.add("next-ready");
-
-    currentItem.classList.add("slide-down");
-
-    if (counter) {
-      counter.textContent = nextIndex + 1 + "/" + items.length;
+    if (items.length <= 1) {
+      if (prevBtn) prevBtn.style.display = "none";
+      if (nextBtn) nextBtn.style.display = "none";
+      if (counter) counter.style.display = "none";
+      return;
     }
 
-    setTimeout(() => {
-      nextItem.classList.add("showing");
-    }, 20);
+    // Tự động tính toán & cập nhật nhãn số đếm 1/N chính xác theo số lượng ảnh khi mở trang
+    if (counter) {
+      counter.style.display = "block";
+      counter.textContent = `1/${items.length}`;
+    }
 
-    const onTransitionEnd = function () {
-      currentItem.classList.remove("slide-down", "active");
-      currentItem.style.zIndex = 1;
+    // Tự động tạo nút prev/next nếu thẻ chưa có sẵn
+    if (!prevBtn) {
+      prevBtn = document.createElement("button");
+      prevBtn.className = "slider-arrow prev-btn";
+      prevBtn.setAttribute("aria-label", "Ảnh trước");
+      prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+      gallery.appendChild(prevBtn);
+    }
+    if (!nextBtn) {
+      nextBtn = document.createElement("button");
+      nextBtn.className = "slider-arrow next-btn";
+      nextBtn.setAttribute("aria-label", "Ảnh tiếp");
+      nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+      gallery.appendChild(nextBtn);
+    }
 
-      nextItem.classList.remove("next-ready", "showing");
-      nextItem.classList.add("active");
+    prevBtn.style.display = "flex";
+    nextBtn.style.display = "flex";
 
-      currentIndex = nextIndex;
-      isAnimating = false;
+    let currentIndex = 0;
+    let isAnimating = false;
 
-      currentItem.removeEventListener("transitionend", onTransitionEnd);
-    };
+    items.forEach((item, idx) => {
+      item.style.zIndex = idx === 0 ? 3 : 1;
+      if (idx === 0) item.classList.add("active");
+      else item.classList.remove("active", "slide-down", "next-ready", "showing");
+    });
 
-    currentItem.addEventListener("transitionend", onTransitionEnd, {
-      once: true,
+    function goToSlide(targetIndex) {
+      if (isAnimating || targetIndex === currentIndex) return;
+      isAnimating = true;
+
+      const currentItem = items[currentIndex];
+      const nextItem = items[targetIndex];
+
+      nextItem.style.zIndex = 3;
+      nextItem.classList.add("next-ready");
+      currentItem.classList.add("slide-down");
+
+      if (counter) {
+        counter.textContent = `${targetIndex + 1}/${items.length}`;
+      }
+
+      setTimeout(() => {
+        nextItem.classList.add("showing");
+      }, 20);
+
+      const onTransitionEnd = function () {
+        currentItem.classList.remove("slide-down", "active");
+        currentItem.style.zIndex = 1;
+
+        nextItem.classList.remove("next-ready", "showing");
+        nextItem.classList.add("active");
+
+        currentIndex = targetIndex;
+        isAnimating = false;
+
+        currentItem.removeEventListener("transitionend", onTransitionEnd);
+      };
+
+      currentItem.addEventListener("transitionend", onTransitionEnd, {
+        once: true,
+      });
+    }
+
+    nextBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      const nextIndex = (currentIndex + 1) % items.length;
+      goToSlide(nextIndex);
+    });
+
+    prevBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      const prevIndex = (currentIndex - 1 + items.length) % items.length;
+      goToSlide(prevIndex);
     });
   });
-});
+}
+
+document.addEventListener("DOMContentLoaded", initLocketGalleries);
 
 // ------------------
 // Chatbot logic
@@ -426,10 +476,48 @@ function initImageLightbox() {
 
   // Bắt sự kiện click vào ảnh
   document.addEventListener("click", function (e) {
-    const img = e.target.closest(".brief-img-wrapper img, .slide-item img, .zoomable-img");
+    const img = e.target.closest(
+      ".brief-img-wrapper img, .slide-item img, .gallery-item img, .zoomable-img"
+    );
     if (!img || !img.src) return;
 
-    // Kiểm tra xem ảnh có thuộc về slider nhiều ảnh không
+    // 1. Kiểm tra xem ảnh có thuộc về locket-gallery (trang Meme) không
+    const locket = img.closest(".locket-gallery");
+    if (locket) {
+      const locketImgs = Array.from(
+        locket.querySelectorAll(".gallery-item img")
+      );
+      const gallerySrcs = locketImgs.map((i) => i.src);
+
+      // Ưu tiên vị trí của ảnh active hiện tại nếu locket đang hiển thị
+      const activeItem = locket.querySelector(".gallery-item.active");
+      const activeImg = activeItem ? activeItem.querySelector("img") : null;
+      let clickedIdx = locketImgs.indexOf(img);
+      if (activeImg && locketImgs.includes(activeImg)) {
+        clickedIdx = locketImgs.indexOf(activeImg);
+      }
+
+      // Hàm đồng bộ trạng thái locket-gallery trên trang
+      const syncFn = (idx) => {
+        const items = locket.querySelectorAll(".gallery-item");
+        const cardCounter = locket.querySelector(".gallery-counter");
+        items.forEach((item, i) => {
+          item.style.zIndex = i === idx ? 3 : 1;
+          if (i === idx) {
+            item.classList.add("active");
+            item.classList.remove("slide-down", "next-ready", "showing");
+          } else {
+            item.classList.remove("active", "slide-down", "next-ready", "showing");
+          }
+        });
+        if (cardCounter) cardCounter.textContent = `${idx + 1}/${items.length}`;
+      };
+
+      openLightbox(gallerySrcs, clickedIdx >= 0 ? clickedIdx : 0, syncFn);
+      return;
+    }
+
+    // 2. Kiểm tra xem ảnh có thuộc về slider nhiều ảnh (.brief-slider) không
     const slider = img.closest(".brief-slider");
     if (slider) {
       const slideImgs = Array.from(slider.querySelectorAll(".slide-item img"));
