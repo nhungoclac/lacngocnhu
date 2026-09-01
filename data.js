@@ -378,122 +378,644 @@ window.PORTFOLIO_DATA = {
       }
     ]
   },
-  "campaigns": [
+  "campaignSections": [
     {
-      "title": "1. Thực tập sinh Content Marketing tại Droppii",
-      "date": "05/2026 - 09/2026",
-      "link": "https://docs.google.com/presentation/d/1-jYV12X3Xn9Xn8Xn7X6/edit?usp=sharing",
-      "linkText": "Xem chi tiết báo cáo chiến dịch",
-      "description": "Thực hiện quản lý nội dung Fanpage, triển khai chiến dịch truyền thông đa kênh cho các đợt Sale Event, Expo và thông báo ra mắt sản phẩm.",
-      "stats": [
+      "sectionTitle": "Droppii",
+      "campaigns": [
         {
-          "label": "Reach tổng chiến dịch",
-          "number": "1.2M+"
+          "title": "90 Ngày Tốc Chiến",
+          "date": "05/2026 - 07/2026",
+          "description": "Toàn bộ bài social post hướng tới chiến dịch và quảng bá cho sản phẩm của nhà tài trợ độc quyền Nutribest Health",
+          "link": "https://docs.google.com/spreadsheets/d/1jtHNT5MBwXDn8rI5jFE23ED71amE9yzcmgZ52xqtvKw/edit?gid=973473861#gid=973473861",
+          "linkText": "Xem sheet tổng hợp bài viết",
+          "stats": [
+            {
+              "number": "> 50",
+              "label": "Đóng góp hơn 50 bài social"
+            },
+            {
+              "number": "485.000",
+              "label": "Lượt xem 50 bài social"
+            },
+            {
+              "number": "224.000",
+              "label": "Người xem 50 bài social"
+            }
+          ]
         },
         {
-          "label": "Lượt tương tác",
-          "number": "85K+"
-        },
-        {
-          "label": "Tăng trưởng Fanpage",
-          "number": "+12%"
+          "title": "Tôi Là Đối Tác Droppii",
+          "date": "05/2026 - 07/2026",
+          "description": "Series gồm 6 tập nói về các đối tác truyền cảm hứng",
+          "link": "https://docs.google.com/spreadsheets/d/1jtHNT5MBwXDn8rI5jFE23ED71amE9yzcmgZ52xqtvKw/edit?gid=458713564#gid=458713564",
+          "linkText": "Xem sheet tổng hợp bài viết",
+          "stats": [
+            {
+              "number": "~ 30",
+              "label": "Đóng góp khoảng 30 bài social"
+            },
+            {
+              "number": "950.000",
+              "label": "Lượt xem 30 bài social"
+            },
+            {
+              "number": "559.000",
+              "label": "Người xem 30 bài social"
+            }
+          ]
         }
       ]
     },
     {
-      "title": "2. Chiến dịch Tháng 10 Dịu Dàng - Trao Nàng Yêu Thương (Lucas)",
-      "date": "10/2025",
-      "link": "https://www.facebook.com/lucascombomac",
-      "linkText": "Xem bài đăng chiến dịch",
-      "description": "Lên kế hoạch và thực thi chuỗi bài đăng truyền thông nhân ngày 20/10, thúc đẩy doanh số bán lẻ phụ kiện phụ nữ.",
-      "stats": [
+      "sectionTitle": "Lucas Combo",
+      "campaigns": [
         {
-          "label": "Doanh thu tăng",
-          "number": "+35%"
+          "title": "Xoay Đi Chờ Chi",
+          "date": "06/09/2025 - 06/10/2025",
+          "description": "Chiến dịch tăng doanh thu tại cửa hàng. 1 hóa đơn mua hàng = 1 lượt xoay vòng quay may mắn",
+          "link": "https://docs.google.com/spreadsheets/d/1ZKpP-XwpTRJh86EiEFHs0XhB-CHrNXfi/edit?gid=1498389441",
+          "linkText": "Xem kế hoạch chi tiết (Google Sheet)",
+          "stats": [
+            {
+              "number": "> 30",
+              "label": "Bài đăng (gồm reels, ảnh, story)"
+            },
+            {
+              "number": "> 500",
+              "label": "Khách hàng ghé mua và hài lòng"
+            },
+            {
+              "number": "341 triệu",
+              "label": "Doanh thu tại cửa hàng"
+            }
+          ]
         },
         {
-          "label": "Tương tác tự nhiên",
-          "number": "15.000+"
+          "title": "Tháng 10 dịu dàng - Trao nàng yêu thương",
+          "date": "18/10/2025 - 20/10/2025",
+          "description": "Chuỗi bài viết và video chào mừng ngày Phụ nữ Việt Nam, kết hợp quà tặng cho các khách nữ ghé mua tại cửa hàng",
+          "link": "https://docs.google.com/spreadsheets/d/1nR7hOb9Z9vBlTrnPj2eDYfpyknF2TdSoZ7Jwf0hR3YA/edit?gid=1379483124",
+          "linkText": "Xem kế hoạch chi tiết (Google Sheet)",
+          "stats": [
+            {
+              "number": "> 10",
+              "label": "Bài đăng (gồm reels, ảnh, story)"
+            },
+            {
+              "number": "16",
+              "label": "Khách nữ ghé mua và hài lòng"
+            },
+            {
+              "number": "12 triệu",
+              "label": "Doanh thu tại cửa hàng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Đồ án Thương mại xã hội",
+      "campaigns": [
+        {
+          "title": "Bán hàng Affiliate, Mega Livestream",
+          "date": "",
+          "description": "Tình huống giả tưởng: lên kế hoạch truyền thông để chuẩn bị cho phiên MEGA LIVE trên TikTok (bán hàng qua affiliate)",
+          "link": "https://docs.google.com/spreadsheets/d/11hDVcBBFUSz9cr09Bz_EY0ZAwz9vE-gbU1U3S9Yrgqo/edit?gid=1420815595#gid=1420815595",
+          "linkText": "Xem kế hoạch chi tiết (Google Sheet)",
+          "stats": [
+            {
+              "number": "> 100",
+              "label": "Bài đăng (gồm reels, ảnh, bài viết, story)"
+            },
+            {
+              "number": "> 50.000",
+              "label": "Lượt xem trang"
+            },
+            {
+              "number": "~ 5 triệu",
+              "label": "Doanh thu MEGA LIVE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Đồ án Digital Marketing",
+      "campaigns": [
+        {
+          "title": "Nhận diện thương hiệu & bán hàng",
+          "date": "10/2024 - 12/2024",
+          "description": "Tình huống giả tưởng: khô gà Delifood mới được thành lập và cần chiến dịch chạy truyền thông cho thương hiệu",
+          "link": "https://docs.google.com/spreadsheets/d/1EGUwO55bduOgcLzJZj3gteLVLCtAs5K1W9p23G5uOaY/edit?gid=625374556#gid=625374556",
+          "linkText": "Xem kế hoạch chi tiết (Google Sheet)",
+          "stats": [
+            {
+              "number": "~ 30",
+              "label": "Bài đăng (gồm reels, ảnh, story)"
+            },
+            {
+              "number": "7.400",
+              "label": "Lượt xem trang tự nhiên"
+            },
+            {
+              "number": "9đ",
+              "label": "Nhóm có điểm đồ án cao nhất lớp"
+            }
+          ]
         }
       ]
     }
   ],
   "designs": [
     {
-      "title": "Thiết kế Poster & Banner Sản phẩm",
-      "tag": "Social Media Banner",
+      "title": "Quảng bá Xoay Đi Chờ Chi",
+      "desc": "Ảnh thông báo chiến dịch Xoay Đi Chờ Chi trên Fanpage Lucas",
+      "tools": [
+        "Canva Pro",
+        "Cartoonify",
+        "TypeExtrude"
+      ],
+      "link": "https://www.facebook.com/photo/?fbid=1230514615782535&set=a.564615045705832",
       "images": [
-        "photo/bku.png",
-        "photo/bku2.png",
-        "photo/bku3.png",
+        "photo/xdcc.jpg"
+      ]
+    },
+    {
+      "title": "Chiến dịch 20/10",
+      "desc": "Ảnh thông báo chiến dịch Tháng 10 dịu dàng - Trao nàng yêu thương",
+      "tools": [
+        "Canva Pro",
+        "Cartoonify",
+        "TypeExtrude"
+      ],
+      "link": "https://www.facebook.com/photo/?fbid=1267744212059575&set=a.564615045705832",
+      "images": [
+        "photo/2010.jpg"
+      ]
+    },
+    {
+      "title": "Ảnh bài blog",
+      "desc": "Chụp và thiết kế lại để gắn vào bài SEO của website lucas.vn",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "#",
+      "images": [
+        "photo/blog 1.jpg",
+        "photo/blog 2.jpg",
+        "photo/blog 3.jpg",
+        "photo/blog 4.jpg",
+        "photo/blog 5.jpg"
+      ]
+    },
+    {
+      "title": "Ảnh thumbnail",
+      "desc": "Ảnh thumbnail để gắn vào bài SEO của website lucas.vn",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "#",
+      "images": [
+        "photo/thumb 1.jpg",
+        "photo/thumb 2.jpg",
+        "photo/thumb 3.jpg",
+        "photo/thumb 4.jpg",
+        "photo/thumb 5.jpg"
+      ]
+    },
+    {
+      "title": "Delifood",
+      "desc": "Quảng cáo sản phẩm bằng cách giới thiệu các món ăn có thể mix với khô",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/share/p/18JukKKxKL/",
+      "images": [
+        "photo/1.jpg",
+        "photo/2.jpg",
+        "photo/3.jpg",
+        "photo/4.jpg"
+      ]
+    },
+    {
+      "title": "Delifood",
+      "desc": "Thiết kế ảnh cho bài viết quảng cáo sản phẩm mới (các món khô chay)",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/share/p/1am6xRHBcL/",
+      "images": [
+        "photo/khochay.jpg"
+      ]
+    },
+    {
+      "title": "Delifood",
+      "desc": "Thiết kế ảnh cho bài viết quảng cáo khô bò cay",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/share/p/1EQRUZBdGW/",
+      "images": [
+        "photo/delifood2.jpg"
+      ]
+    },
+    {
+      "title": "Thương mại xã hội",
+      "desc": "Thiết kế ảnh cho truyền thông trước phiên MEGA LIVE",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/photo?fbid=122115561363056493&set=a.122103934815056493",
+      "images": [
+        "photo/tmxh.jpg"
+      ]
+    },
+    {
+      "title": "Thương mại xã hội",
+      "desc": "Thiết kế ảnh truyền thông Minigame trước phiên MEGA LIVE",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/photo.php?fbid=122115177627056493&set=pb.61581694814856.-2207520000&type=3",
+      "images": [
+        "photo/tmxh1.jpg"
+      ]
+    },
+    {
+      "title": "Thương mại xã hội",
+      "desc": "Thiết kế ảnh tổng kết phiên MEGA LIVE",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/share/p/1Dcq2SHZM3/",
+      "images": [
+        "photo/tmxh2.jpg"
+      ]
+    },
+    {
+      "title": "Quản trị sự kiện",
+      "desc": "Bài thông báo chúc mừng Top 3 Bật Ký Ức",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/share/p/1DSRpc2x7N/",
+      "images": [
         "photo/bku4.jpg"
       ]
     },
     {
-      "title": "Thiết kế Visual Content Truyền thông",
-      "tag": "Branding & Visual",
+      "title": "Quản trị sự kiện",
+      "desc": "Chạy truyền thông cho sự kiện Bật Ký Ức",
+      "tools": [
+        "Canva Pro"
+      ],
+      "link": "https://www.facebook.com/share/p/14W3o4HVfpP/",
       "images": [
         "photo/bku5.jpg",
         "photo/bku6.jpg",
         "photo/bku7.jpg",
-        "photo/bku8.jpg"
+        "photo/bku8.jpg",
+        "photo/bku9.jpg",
+        "photo/bku10.jpg"
       ]
     }
   ],
-  "memes": [
+  "memeSections": [
     {
-      "id": "meme_1",
-      "caption": "Meme dạng thả vote để giới thiệu sạc dự phòng WiWU",
-      "images": [
-        "photo/meme1.png",
-        "photo/memere.jpg"
+      "sectionTitle": "Meme đã viral",
+      "memes": [
+        {
+          "caption": "Meme dạng thả vote để giới thiệu sạc dự phòng WiWU",
+          "images": [
+            "photo/meme1.png",
+            "photo/memere.jpg"
+          ]
+        },
+        {
+          "caption": "Chuỗi meme xu hướng theo vụ kiện Cardi B",
+          "images": [
+            "photo/memeca1.png",
+            "photo/memeca2.png",
+            "photo/memeca3.png",
+            "photo/memeca4.png",
+            "photo/memeca5.png",
+            "photo/memecare.jpg",
+            "photo/memecare2.jpg"
+          ]
+        },
+        {
+          "caption": "Meme xu hướng ảnh nền 2/9 & giới thiệu sạc dự phòng WiWU",
+          "images": [
+            "photo/meme2.png",
+            "photo/memere2.jpg"
+          ]
+        },
+        {
+          "caption": "Meme theo sự kiện ra mắt iPhone 17",
+          "images": [
+            "photo/meme3.png",
+            "photo/meme4.png",
+            "photo/meme5.png"
+          ]
+        },
+        {
+          "caption": "Một số meme khác",
+          "images": [
+            "photo/meme6.png",
+            "photo/meme7.png",
+            "photo/meme8.png",
+            "photo/meme9.png"
+          ]
+        }
       ]
     },
     {
-      "id": "meme_2",
-      "caption": "Meme tương tác chăm sóc khách hàng & quà tặng",
-      "images": [
-        "photo/meme2.png",
-        "photo/memere2.jpg"
+      "sectionTitle": "90 Ngày Tốc Chiến",
+      "memes": [
+        {
+          "caption": "Caption cho clip branding nhà tài trợ NutriBest Health (160.000 lượt xem)",
+          "images": [
+            "photo/90NTC/pdpvideo.png",
+            "photo/90NTC/pdpvideo-meta.png"
+          ]
+        },
+        {
+          "caption": "Sales Event cho ngày 20/06 - Ngày hội NutriBest Health (63.000 lượt xem)",
+          "images": [
+            "photo/90NTC/2006.png",
+            "photo/90NTC/2006-meta.png"
+          ]
+        },
+        {
+          "caption": "Bài Minigame Ngày hội NutriBest Health (28.000 lượt xem)",
+          "images": [
+            "photo/90NTC/minigame.png",
+            "photo/90NTC/minigame-meta.png"
+          ]
+        },
+        {
+          "caption": "Bài branding cho nhà tài trợ độc quyền NutriBest Health (3.000 lượt xem)",
+          "images": [
+            "photo/90NTC/post.png",
+            "photo/90NTC/post1.png",
+            "photo/90NTC/post-meta.png"
+          ]
+        }
       ]
     },
     {
-      "id": "meme_3",
-      "caption": "Meme sản phẩm phụ kiện Macbook",
-      "images": [
-        "photo/meme3.png",
-        "photo/memeca1.png"
+      "sectionTitle": "Tôi Là Đối Tác Droppii",
+      "memes": [
+        {
+          "caption": "Chuẩn bị cap cho tập 2 - short 2 (117.000 lượt xem)",
+          "images": [
+            "photo/MEME/tldts22.png",
+            "photo/MEME/tldts22me.png"
+          ]
+        },
+        {
+          "caption": "Chuẩn bị cap cho tập 4 - short 1 (140.000 lượt xem)",
+          "images": [
+            "photo/MEME/tldts14.png",
+            "photo/MEME/tldts14me.png"
+          ]
+        },
+        {
+          "caption": "Chuẩn bị cap cho tập 5 - short 1 (182.000 lượt xem)",
+          "images": [
+            "photo/MEME/tldt5te.png",
+            "photo/MEME/tldt5teme.png"
+          ]
+        },
+        {
+          "caption": "Chuẩn bị cap cho album ảnh tập 3 (3.900 lượt xem)",
+          "images": [
+            "photo/MEME/tldt3sto.png",
+            "photo/MEME/tldt3stome.png"
+          ]
+        },
+        {
+          "caption": "Chuẩn bị cap cho official video tập 6 (5.100 lượt xem)",
+          "images": [
+            "photo/MEME/tldt1.png",
+            "photo/MEME/tldtme1.png"
+          ]
+        },
+        {
+          "caption": "Chuẩn bị cap cho poster tập 5 (3.200 lượt xem)",
+          "images": [
+            "photo/MEME/tldt5pos.png",
+            "photo/MEME/tldt5me.png"
+          ]
+        }
       ]
     },
     {
-      "id": "meme_4",
-      "caption": "Meme giải trí văn phòng",
-      "images": [
-        "photo/meme4.png",
-        "photo/memeca2.png"
+      "sectionTitle": "Điểm tư vấn đạt chuẩn Droppii",
+      "memes": [
+        {
+          "caption": "Bài remind Điểm tư vấn đạt chuẩn (3.100 lượt xem)",
+          "images": [
+            "photo/ĐTV/01.png",
+            "photo/ĐTV/01-meta.png"
+          ]
+        },
+        {
+          "caption": "Công bố cuộc thi (11.000 lượt xem)",
+          "images": [
+            "photo/ĐTV/03.png",
+            "photo/ĐTV/03-meta.png"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionTitle": "Bài đăng khác",
+      "memes": [
+        {
+          "caption": "Bài đăng chiến dịch",
+          "images": [
+            "photo/post1.png"
+          ]
+        },
+        {
+          "caption": "Bài đăng săn sale phiên LIVE",
+          "images": [
+            "photo/post3.png"
+          ]
+        },
+        {
+          "caption": "Bài đăng chiến dịch",
+          "images": [
+            "photo/post4.png"
+          ]
+        }
       ]
     }
   ],
   "briefs": [
     {
-      "title": "Brief hình ảnh chiến dịch Sale 7/7",
-      "date": "07/2026",
-      "metaImage": "photo/brief-77-meta.png",
-      "resultImages": [
-        "photo/brief-77-result.png",
-        "photo/brief-77-result01.png"
+      "title": "Bài branding cho Nhà tài trợ độc quyền NutriBest Health",
+      "link": "https://www.facebook.com/share/p/1b5tBqBDZW/",
+      "reqImages": [
+        "photo/brief-brand.png",
+        "photo/brief-brand01.png"
       ],
-      "link": "https://docs.google.com/presentation/d/1mdY6wRFrGQLF3L-yfg_WiHMVrCT5tmzoXIps_mCFH-Q/edit"
+      "resImages": [
+        "photo/brief-brand-result.png",
+        "photo/brief-brand-result01.png",
+        "photo/brief-brand-meta.png"
+      ],
+      "note": "Bài viết nằm trong chiến dịch 90 Ngày Tốc Chiến 2026",
+      "stats": [
+        {
+          "number": "> 2.200",
+          "label": "Lượt xem"
+        },
+        {
+          "number": "> 1.200",
+          "label": "Người xem"
+        }
+      ]
     },
     {
-      "title": "Brief hình ảnh Brand Awareness NutriBest",
-      "date": "08/2026",
-      "metaImage": "photo/brief-brand-meta.png",
-      "resultImages": [
-        "photo/brief-brand-result.png",
-        "photo/brief-brand-result01.png"
+      "title": "Bài Minigame 90NTC",
+      "link": "https://www.facebook.com/DroppiiOfficialPage/posts/pfbid02rx5NhLXYPphrjpZnDKow8MYjiEMAKwRYbfBpWo1ePSHsZaqfUMbDw74TvthEGpwil",
+      "reqImages": [
+        "photo/brief-nu.png"
       ],
-      "link": "#"
+      "resImages": [
+        "photo/brief-nu-result.png",
+        "photo/brief-nu01.png",
+        "photo/brief-nu-meta.png"
+      ],
+      "note": "Bài viết nằm trong chiến dịch 90 Ngày Tốc Chiến 2026",
+      "stats": [
+        {
+          "number": "> 2.900",
+          "label": "Lượt xem"
+        },
+        {
+          "number": "> 1.400",
+          "label": "Người xem"
+        }
+      ]
+    },
+    {
+      "title": "Double Day 7/7",
+      "link": "https://www.facebook.com/share/p/199SHkXHek/",
+      "reqImages": [
+        "photo/brief-77.png"
+      ],
+      "resImages": [
+        "photo/brief-77-result.png",
+        "photo/brief-77-result01.png",
+        "photo/brief-77-meta.png"
+      ],
+      "note": "Sales event",
+      "stats": [
+        {
+          "number": ">2.400",
+          "label": "Lượt xem"
+        },
+        {
+          "number": "> 1.100",
+          "label": "Người xem"
+        }
+      ]
+    },
+    {
+      "title": "Album ảnh Tôi là đối tác Droppii tập 6",
+      "link": "https://www.facebook.com/share/p/1Bxpe9QCBv/",
+      "reqImages": [
+        "photo/brief-tldt6.png"
+      ],
+      "resImages": [
+        "photo/brief-tldt6-result.png",
+        "photo/brief-tldt6-01.png",
+        "photo/brief-tldt6-meta.png"
+      ],
+      "note": "Bài viết thuộc series Tôi là đối tác Droppii",
+      "stats": [
+        {
+          "number": "> 2.400",
+          "label": "Lượt xem"
+        },
+        {
+          "number": "1.400",
+          "label": "Người xem"
+        }
+      ]
+    },
+    {
+      "title": "Remind Điểm Tư Vấn Đạt Chuẩn Droppii",
+      "link": "https://www.facebook.com/share/p/19HGJ9eMDY/",
+      "reqImages": [
+        "photo/ĐTV/brief-02.png"
+      ],
+      "resImages": [
+        "photo/ĐTV/02.png",
+        "photo/ĐTV/02-meta.png",
+        "photo/brief-remind-meta.png"
+      ],
+      "note": "Chuỗi bài viết Điểm tư vấn Đạt chuẩn Droppii",
+      "stats": [
+        {
+          "number": "> 2.000",
+          "label": "Lượt xem"
+        },
+        {
+          "number": "> 1.100",
+          "label": "Người xem"
+        }
+      ]
+    },
+    {
+      "title": "Remind Điểm Tư Vấn Đạt Chuẩn Droppii (Mục 2)",
+      "link": "https://www.facebook.com/share/p/19HGJ9eMDY/",
+      "reqImages": [
+        "photo/brief-remind.png"
+      ],
+      "resImages": [
+        "photo/brief-remind-result.png",
+        "photo/brief-remind-result01.png",
+        "photo/brief-remind-meta.png"
+      ],
+      "note": "Chuỗi bài viết Điểm tư vấn Đạt chuẩn Droppii",
+      "stats": [
+        {
+          "number": "> 2.100",
+          "label": "Lượt xem"
+        },
+        {
+          "number": "> 1.200",
+          "label": "Người xem"
+        }
+      ]
+    },
+    {
+      "title": "Bài Educate Đối tác",
+      "link": "https://www.facebook.com/share/p/1CmqZ1AE2b/",
+      "reqImages": [
+        "photo/brief-last-00.png",
+        "photo/brief-last.png"
+      ],
+      "resImages": [
+        "photo/brief-last-result.png",
+        "photo/brief-last-result01.png",
+        "photo/brief-last-meta.png"
+      ],
+      "note": "Chuỗi bài viết Điểm tư vấn Đạt chuẩn Droppii",
+      "stats": [
+        {
+          "number": "> 2.800",
+          "label": "Lượt xem"
+        },
+        {
+          "number": "> 1.600",
+          "label": "Người xem"
+        }
+      ]
     }
   ]
 };
