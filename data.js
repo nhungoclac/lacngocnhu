@@ -7,7 +7,7 @@ window.PORTFOLIO_DATA = {
     "avatar": "photo/avt1.jpg",
     "email": "nhulacngoc@gmail.com",
     "location": "TP. Hồ Chí Minh",
-    "birthYear": "20045",
+    "birthYear": "2004",
     "cvLink": "https://drive.google.com/file/d/1CRm0hvvJd5fkQZBLlEl1SQJHV02AQYpo/view?usp=sharing",
     "githubRepo": "nhungoclac/lacngocnhu",
     "facebook": "https://www.facebook.com/lacnhu04",
@@ -235,6 +235,17 @@ window.PORTFOLIO_DATA = {
           "link": "https://docs.google.com/document/d/1A8JeJhsUhVVWsnTgY09tDh70kTX-5PR_zLag70-UXGs/edit?tab=t.0"
         }
       ]
+    },
+    {
+      "id": "exp_1788265792082",
+      "date": "2026",
+      "title": "Tên công ty mới",
+      "sub": "Vị trí",
+      "desc": "Mô tả",
+      "tools": [
+        "Canva"
+      ],
+      "workSamples": []
     }
   ],
   "skills": [
