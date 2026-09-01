@@ -7,7 +7,7 @@ window.PORTFOLIO_DATA = {
     "avatar": "photo/avt1.jpg",
     "email": "nhulacngoc@gmail.com",
     "location": "TP. Hồ Chí Minh",
-    "birthYear": "2004",
+    "birthYear": "20045",
     "cvLink": "https://drive.google.com/file/d/1CRm0hvvJd5fkQZBLlEl1SQJHV02AQYpo/view?usp=sharing",
     "githubRepo": "nhungoclac/lacngocnhu",
     "facebook": "https://www.facebook.com/lacnhu04",
