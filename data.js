@@ -1,7 +1,7 @@
 // data.js - Dữ liệu tập trung cho Portfolio Lạc Ngọc Như
 window.PORTFOLIO_DATA = {
   "profile": {
-    "name": "Lạc Ngọc Như",
+    "name": "Lạc Ngọc Như nè",
     "badgeTitle": "Marketing",
     "slogan": "\"Lạc - thích truyền thông, yêu công nghệ\"",
     "avatar": "photo/avt1.jpg",
